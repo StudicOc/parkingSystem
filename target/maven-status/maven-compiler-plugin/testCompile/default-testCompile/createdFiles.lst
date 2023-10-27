@@ -1,0 +1,3 @@
+com\parkit\parkingsystem\FareCalculatorServiceTest.class
+com\parkit\parkingsystem\integration\service\DataBasePrepareService.class
+com\parkit\parkingsystem\integration\config\DataBaseTestConfig.class
