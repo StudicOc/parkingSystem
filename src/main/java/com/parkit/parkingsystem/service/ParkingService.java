@@ -44,11 +44,23 @@ public class ParkingService {
                 ticket.setPrice(0);
                 ticket.setInTime(inTime);
                 ticket.setOutTime(null);
+
+                // GIVE MESSAGE FOR CLIENT DISCOUNT
+
+                if (ticketDAO.getNbTicket(vehicleRegNumber) > 1) {
+
+                    System.out.println("Heureux de vous revoir ! En tant qu’utilisateur régulier de\n" +
+                            "notre parking, vous allez obtenir une remise de 5%");
+                }
+
                 ticketDAO.saveTicket(ticket);
                 System.out.println("Generated Ticket and saved in DB");
                 System.out.println("Please park your vehicle in spot number:"+parkingSpot.getId());
                 System.out.println("Recorded in-time for vehicle number:"+vehicleRegNumber+" is:"+inTime);
+
             }
+
+
         }catch(Exception e){
             logger.error("Unable to process incoming vehicle",e);
         }
@@ -103,7 +115,23 @@ public class ParkingService {
             Ticket ticket = ticketDAO.getTicket(vehicleRegNumber);
             Date outTime = new Date();
             ticket.setOutTime(outTime);
-            fareCalculatorService.calculateFare(ticket);
+
+
+            /*modify the processExitingVehicle method of the same class
+            to call the calculateFare method with a parameter
+            discount to true if this is not the first pass*/
+
+            // Declaration of a variable that will call our method getNbTicket that return INT
+            int ticketsOccurrence = ticketDAO.getNbTicket(vehicleRegNumber);
+            // Condition to return discount (multiple tickets)
+            if (ticketsOccurrence > 1){
+                fareCalculatorService.calculateFare(ticket, true);
+            }
+            // No reduction for client
+            else {
+                fareCalculatorService.calculateFare(ticket);
+            }
+
             if(ticketDAO.updateTicket(ticket)) {
                 ParkingSpot parkingSpot = ticket.getParkingSpot();
                 parkingSpot.setAvailable(true);
@@ -113,8 +141,14 @@ public class ParkingService {
             }else{
                 System.out.println("Unable to update ticket information. Error occurred");
             }
+
         }catch(Exception e){
             logger.error("Unable to process exiting vehicle",e);
         }
+
+
+
     }
+
+
 }
