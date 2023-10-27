@@ -16,7 +16,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Date;
 
+
 import static org.mockito.Mockito.*;
+
 
 @ExtendWith(MockitoExtension.class)
 public class ParkingServiceTest {
@@ -54,8 +56,51 @@ public class ParkingServiceTest {
 
     @Test
     public void processExitingVehicleTest(){
+
+        /*  Please type the vehicle registration number and press enter key
+            Please pay the parking fare:1.5
+            Recorded out-time for vehicle number:ABCDEF is:Thu Oct 26 15:36:21 CEST 2023*/
+
+        //  WHEN
+        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        //  VERIFY
         parkingService.processExitingVehicle();
         verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
     }
+
+    @Test
+    public void testProcessIncomingVehicle(){}
+
+
+        //execution of the test in the case where the updateTicket() method of ticketDAO returns false
+        //when calling processExitingVehicle()
+        /* we need to use :
+        *  processExitingVehicle();
+        *  updateTicket();
+        *  class ticketDAO return false
+        * */
+    @Test
+    public void processExitingVehicleTestUnableUpdate(){
+
+        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        Mockito.when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
+
+        parkingService.processExitingVehicle();
+
+       verify(ticketDAO, Mockito.times(1)).getTicket("ABCDEF");
+       verify(ticketDAO, Mockito.times(1)).getNbTicket("ABCDEF");
+       verify(ticketDAO, Mockito.times(1)).updateTicket(any(Ticket.class));
+
+    }
+
+    @Test
+    public void testGetNextParkingNumberIfAvailable(){}
+
+    @Test
+    public void testGetNextParkingNumberIfAvailableParkingNumberNotFound(){}
+
+    @Test
+    public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(){}
+
 
 }
