@@ -89,7 +89,7 @@ public class TicketDAO {
 
     // Give a discount ticket to recurring vehicles
     // The license plate (vehicleRegNumber) will be used to track entries and exits
- // Will allow you to retrieve the number of occurrences of a vehicleRegNumber en bdd
+    // Will allow you to retrieve the number of occurrences of a vehicleRegNumber en bdd
     public int getNbTicket (String vehicleRegNumber) {
         Connection con = null;
         //Initialize counter
@@ -117,17 +117,4 @@ public class TicketDAO {
     }
 
 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
