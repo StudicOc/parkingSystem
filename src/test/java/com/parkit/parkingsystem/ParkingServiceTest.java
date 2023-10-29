@@ -16,7 +16,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Date;
 
-
 import static org.mockito.Mockito.*;
 
 
@@ -33,13 +32,13 @@ public class ParkingServiceTest {
     private static TicketDAO ticketDAO;
 
     @BeforeEach
-    private void setUpPerTest() {
+    private void setUpPerTest () {
         try {
             when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 
-            ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
+            ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
             Ticket ticket = new Ticket();
-            ticket.setInTime(new Date(System.currentTimeMillis() - (60*60*1000)));
+            ticket.setInTime(new Date(System.currentTimeMillis() - (60 * 60 * 1000)));
             ticket.setParkingSpot(parkingSpot);
             ticket.setVehicleRegNumber("ABCDEF");
             when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
@@ -50,19 +49,14 @@ public class ParkingServiceTest {
             parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         } catch (Exception e) {
             e.printStackTrace();
-            throw  new RuntimeException("Failed to set up test mock objects");
+            throw new RuntimeException("Failed to set up test mock objects");
         }
     }
 
 
-                    // MOCKITO TEST //
+                                        // MOCKITO TEST //
     @Test
-    public void processExitingVehicleTest(){
-
-        /*  Please type the vehicle registration number and press enter key
-            Please pay the parking fare:1.5
-            Recorded out-time for vehicle number:ABCDEF is:Thu Oct 26 15:36:21 CEST 2023*/
-
+    public void processExitingVehicleTest () {
         //  WHEN
         Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
         //  VERIFY
@@ -71,27 +65,36 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void testProcessIncomingVehicle(){}
+    public void testProcessIncomingVehicle () {}
 
 
-        //execution of the test in the case where the updateTicket() method of ticketDAO returns false
-        //when calling processExitingVehicle()
-        /* we need to use :
-        *  processExitingVehicle();
-        *  updateTicket();
-        *  class ticketDAO return false
-        * */
     @Test
-    public void processExitingVehicleTestUnableUpdate(){}
+    public void processExitingVehicleTestUnableUpdate (){
+
+        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        // method updateTicket() de ticketDAO return false
+        Mockito.when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
+
+        //Call method
+        parkingService.processExitingVehicle();
+
+        // Verify that the method is only examined once
+        verify(ticketDAO, Mockito.times(1)).getTicket("ABCDEF");
+        verify(ticketDAO, Mockito.times(1)).getNbTicket("ABCDEF");
+        verify(ticketDAO, Mockito.times(1)).updateTicket(any(Ticket.class));
+
+    }
+
+
 
     @Test
     public void testGetNextParkingNumberIfAvailable(){}
 
     @Test
-    public void testGetNextParkingNumberIfAvailableParkingNumberNotFound(){}
+    public void testGetNextParkingNumberIfAvailableParkingNumberNotFound() {}
 
     @Test
     public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(){}
 
-
 }
+
