@@ -65,7 +65,12 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void testProcessIncomingVehicle () {}
+    public void testProcessIncomingVehicle () {
+
+
+
+
+    }
 
 
     @Test
@@ -81,7 +86,7 @@ public class ParkingServiceTest {
         // Verify that the method is only examined once
         verify(ticketDAO, Mockito.times(1)).getTicket("ABCDEF");
         verify(ticketDAO, Mockito.times(1)).getNbTicket("ABCDEF");
-        verify(ticketDAO, Mockito.times(1)).updateTicket(any(Ticket.class));
+        verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
 
     }
 
