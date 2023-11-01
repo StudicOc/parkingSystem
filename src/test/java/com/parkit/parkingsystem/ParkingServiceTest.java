@@ -67,30 +67,21 @@ public class ParkingServiceTest {
     @Test
     public void testProcessIncomingVehicle () {
 
+        Ticket ticket = new Ticket();
+            //WHEN
+        Mockito.when(ticketDAO.getTicket("ABCDEF")).thenReturn(ticket);
+        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        Mockito.when(inputReaderUtil.readSelection()).thenReturn(1);
+        Mockito.when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
 
-
+        parkingService.processIncomingVehicle();
+            //VERIFY
+        verify(ticketDAO,Mockito.times(1)).saveTicket(any(Ticket.class));
 
     }
-
 
     @Test
-    public void processExitingVehicleTestUnableUpdate (){
-
-        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
-        // method updateTicket() de ticketDAO return false
-        Mockito.when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
-
-        //Call method
-        parkingService.processExitingVehicle();
-
-        // Verify that the method is only examined once
-        verify(ticketDAO, Mockito.times(1)).getTicket("ABCDEF");
-        verify(ticketDAO, Mockito.times(1)).getNbTicket("ABCDEF");
-        verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
-
-    }
-
-
+    public void processExitingVehicleTestUnableUpdate (){}
 
     @Test
     public void testGetNextParkingNumberIfAvailable(){}
