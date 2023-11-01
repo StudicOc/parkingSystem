@@ -33,6 +33,8 @@ public class ParkingServiceTest {
 
     @BeforeEach
     private void setUpPerTest () {
+
+            // lenient() => execute when Unnecessary stubbing detected
         try {
             when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 
@@ -41,10 +43,10 @@ public class ParkingServiceTest {
             ticket.setInTime(new Date(System.currentTimeMillis() - (60 * 60 * 1000)));
             ticket.setParkingSpot(parkingSpot);
             ticket.setVehicleRegNumber("ABCDEF");
-           // when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
-           //when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
+            lenient().when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
+            lenient().when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
 
-            when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+            lenient().when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
             parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         } catch (Exception e) {
@@ -81,8 +83,12 @@ public class ParkingServiceTest {
     @Test
     public void processExitingVehicleTestUnableUpdate (){
 
-
-
+        //WHEN
+        when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
+        //VERIFY
+        parkingService.processExitingVehicle();
+        verify(ticketDAO, Mockito.times(1)).updateTicket(any(Ticket.class));
 
     }
 
