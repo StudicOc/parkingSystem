@@ -41,8 +41,8 @@ public class ParkingServiceTest {
             ticket.setInTime(new Date(System.currentTimeMillis() - (60 * 60 * 1000)));
             ticket.setParkingSpot(parkingSpot);
             ticket.setVehicleRegNumber("ABCDEF");
-            when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
-            when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
+           // when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
+           //when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
 
             when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
@@ -67,9 +67,7 @@ public class ParkingServiceTest {
     @Test
     public void testProcessIncomingVehicle () {
 
-        Ticket ticket = new Ticket();
             //WHEN
-        Mockito.when(ticketDAO.getTicket("ABCDEF")).thenReturn(ticket);
         Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
         Mockito.when(inputReaderUtil.readSelection()).thenReturn(1);
         Mockito.when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
@@ -81,7 +79,12 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void processExitingVehicleTestUnableUpdate (){}
+    public void processExitingVehicleTestUnableUpdate (){
+
+
+
+
+    }
 
     @Test
     public void testGetNextParkingNumberIfAvailable(){}
