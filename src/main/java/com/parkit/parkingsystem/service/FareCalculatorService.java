@@ -3,12 +3,13 @@ package com.parkit.parkingsystem.service;
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
 
-import java.util.Date;
+
 
 
 
 public class FareCalculatorService {
 
+    // declaration variable for 5% discount //
     double discountPercentage = 5;
 
     public void calculateFare(Ticket ticket, boolean discount){
@@ -18,7 +19,6 @@ public class FareCalculatorService {
 
 
         //TODO: Some tests are failing here. Need to check if this logic is correct
-        //
         long outTime = ticket.getOutTime().getTime();
         long inTime = ticket.getInTime().getTime();
         float duration =  ((outTime - inTime) / (float)(60*60*1000));
@@ -31,8 +31,7 @@ public class FareCalculatorService {
             ticket.setPrice(0);
             return;
         }
-
-        //
+                            // CALCULATOR //
         switch (ticket.getParkingSpot().getParkingType()){
             case CAR: {
                 ticket.setPrice(timeSpent * Fare.CAR_RATE_PER_HOUR);
@@ -50,11 +49,7 @@ public class FareCalculatorService {
             ticket.setPrice( ticket.getPrice() * (1 - (discountPercentage/100)));
         }
     }
-
     public void calculateFare(Ticket ticket) {
      calculateFare(ticket, false);
     }
-
-
-
 }

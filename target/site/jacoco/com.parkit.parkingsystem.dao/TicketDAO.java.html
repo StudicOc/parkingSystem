@@ -87,50 +87,34 @@ import java.sql.Timestamp;
 <span class="nc" id="L87">        return false;</span>
     }
 
-    // Give a discount ticket to recurring vehicles
-    // The license plate (vehicleRegNumber) will be used to track entries and exits
 
+                    //
     public int getNbTicket (String vehicleRegNumber) {
-<span class="nc" id="L94">        Connection con = null;</span>
+<span class="nc" id="L93">        Connection con = null;</span>
         //Initialize counter
-<span class="nc" id="L96">        int countNumbersTickets = 0;</span>
+<span class="nc" id="L95">        int countNumbersTickets = 0;</span>
         // Block of code to try
         try {
-<span class="nc" id="L99">            con = dataBaseConfig.getConnection();</span>
-<span class="nc" id="L100">            PreparedStatement ps = con.prepareStatement(DBConstants.COUNT_TICKET);</span>
+<span class="nc" id="L98">            con = dataBaseConfig.getConnection();</span>
+<span class="nc" id="L99">            PreparedStatement ps = con.prepareStatement(DBConstants.COUNT_TICKET);</span>
             //increment counter variable
-<span class="nc" id="L102">            ps.setString(1, vehicleRegNumber);</span>
-<span class="nc" id="L103">            ResultSet rs = ps.executeQuery();</span>
-            //Condition if Query return results
-<span class="nc bnc" id="L105" title="All 2 branches missed.">            if (rs.next()) {</span>
-<span class="nc" id="L106">                countNumbersTickets = rs.getInt(1);</span>
+<span class="nc" id="L101">            ps.setString(1, vehicleRegNumber);</span>
+<span class="nc" id="L102">            ResultSet rs = ps.executeQuery();</span>
+            //Condition if Query return/get results
+<span class="nc bnc" id="L104" title="All 2 branches missed.">            if (rs.next()) {</span>
+<span class="nc" id="L105">                countNumbersTickets = rs.getInt(1);</span>
             }
         }
         //Block of code to handle errors
-<span class="nc" id="L110">        catch (Exception ex){</span>
-<span class="nc" id="L111">            logger.error(&quot;Error counting tickets&quot;, ex);</span>
+<span class="nc" id="L109">        catch (Exception ex){</span>
+<span class="nc" id="L110">            logger.error(&quot;Error counting tickets&quot;, ex);</span>
         } finally {
-<span class="nc" id="L113">            dataBaseConfig.closeConnection(con);</span>
+<span class="nc" id="L112">            dataBaseConfig.closeConnection(con);</span>
         }
         // Return Occurrences
-<span class="nc" id="L116">        return countNumbersTickets;</span>
+<span class="nc" id="L115">        return countNumbersTickets;</span>
     }
 
 
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -68,6 +68,8 @@ public class ParkingServiceTest {
 
     @Test
     public void testProcessIncomingVehicle () {
+        /*testProcessIncomingVehicle: test the method call
+        processIncomingVehicle() where everything happens as expected.*/
 
             //WHEN
         Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
@@ -81,6 +83,8 @@ public class ParkingServiceTest {
 
     @Test
     public void processExitingVehicleTestUnableUpdate (){
+        /* execution of the test in the case where the updateTicket() method of ticketDAO returns false
+        when calling processExitingVehicle()*/
 
         //WHEN
         when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
