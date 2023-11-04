@@ -67,16 +67,18 @@ public class ParkingDataBaseIT {
         inTime.setTime( System.currentTimeMillis() - (  60 * 60 * 1000) );
         parkingService.processIncomingVehicle();
 
+        //TODO: check that a ticket is actualy saved in DB and Parking table is updated with availability
         //THEN
         Ticket ticket = new Ticket();
-        ticketDAO.getTicket("ABCDEF");
         ticket.setInTime(inTime);
+        ticketDAO.getTicket("ABCDEF");
         ticketDAO.updateTicket(ticket);
 
         //ASSERT
         assertNotNull(ticket);
         assertEquals(ParkingType.CAR, ticket.getParkingSpot().getParkingType());
         assertTrue(ticket.getParkingSpot().isAvailable());
+
     }
 
     @Test
