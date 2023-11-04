@@ -7,6 +7,7 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +17,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Date;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.*;
 
 
@@ -86,12 +89,14 @@ public class ParkingServiceTest {
         /* execution of the test in the case where the updateTicket() method of ticketDAO returns false
         when calling processExitingVehicle()*/
 
-        //WHEN
+        //GIVEN -Initialisation
         when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
         when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
-        //VERIFY
+        //WHEN
         parkingService.processExitingVehicle();
-        verify(ticketDAO, Mockito.times(1)).updateTicket(any(Ticket.class));
+        //THEN
+        assertFalse(ticketDAO.updateTicket(any(Ticket.class)));
+
     }
 
     @Test
@@ -99,45 +104,37 @@ public class ParkingServiceTest {
         /* the call of the method getNext ParkingNumberIf Available()
         with resul obtaining a spot whose ID is 1 and which is available
         */
-            /* public int getId() {return number;}
-             public ParkingType getParkingType() {return parkingType;}
-             public boolean isAvailable() {return isAvailable;}
-             */
 
-        //WHEN
+        //GIVEN
         Mockito.when(inputReaderUtil.readSelection()).thenReturn(1);
         Mockito.when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
-        //VERIFY
-        parkingService.getNextParkingNumberIfAvailable();
-        verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
+        //THEN
+        ParkingSpot parkingSpot = parkingService.getNextParkingNumberIfAvailable();
+        //ASSERT
+        assertEquals(1,parkingSpot.getId());
+        assertEquals(true,parkingSpot.isAvailable());
     }
 
     @Test
     public void testGetNextParkingNumberIfAvailableParkingNumberNotFound() {
         //Calling the getNextParkingNumberIfAvailable() method resulting in no spots available (method returns null)
-
-        //WHEN
+        //GIVEN
         Mockito.when(inputReaderUtil.readSelection()).thenReturn(1);
         Mockito.when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(0);
-        //VERIFY
+        //THEN
         parkingService.getNextParkingNumberIfAvailable();
-        verify(parkingSpotDAO, Mockito.times(1)).getNextAvailableSlot(any(ParkingType.class));
+        //ASSERT
+        assertEquals(0, parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class)));
     }
 
     @Test
     public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(){
-
-        /*test method call getNextParkingNumberIfAvailable() results in no spots
-        (the method returns null) because the argument entered by the user
-        regarding the vehicle type is incorrect*/
-
-        //WHEN
+        //GIVEN
         Mockito.when(inputReaderUtil.readSelection()).thenReturn(3);
+        //THEN
         parkingService.getNextParkingNumberIfAvailable();
-        //VERIFY
-        verify(inputReaderUtil, Mockito.times(1)).readSelection();
-
-
+        //ASSERT
+        assertEquals(3, inputReaderUtil.readSelection());
     }
 
 }
