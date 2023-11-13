@@ -95,53 +95,24 @@ public class ParkingDataBaseIT {
 
     }
 
-@Test
+    @Test
     public void testParkingLotExitRecurringUser(){
+        //GIVEN
+        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
 
-    //GIVEN
-    ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        //WHEN
+        parkingService.processIncomingVehicle();
+        parkingService.processExitingVehicle();
+        parkingService.processIncomingVehicle();
 
-    parkingService.processIncomingVehicle();
-    parkingService.processExitingVehicle();
+        Ticket ticket = ticketDAO.getTicket("ABCDEF");
+        ticket.setInTime(new Date(System.currentTimeMillis() - (60*60*1000))); // set intime one hour before
+        ticketDAO.saveTicket(ticket);
+        parkingService.processExitingVehicle();
 
-    parkingService.processIncomingVehicle();
-    Ticket ticket = ticketDAO.getTicket("ABCDEF");
-    ticket.setOutTime(new Date(System.currentTimeMillis() - (60*60*10000)));
-    ticketDAO.saveTicket(ticket);
-
-    parkingService.processExitingVehicle();
-    Ticket ticketOut = ticketDAO.getTicket("ABCDEF");
-
-    double actualTicketDuration = (double) (ticketOut.getOutTime().getTime() - ticketOut.getInTime().getTime()) / 3600000;
-
-
-    double expectedPrice = Math.round(actualTicketDuration * Fare.CAR_RATE_PER_HOUR * 0.95 * 100.0) / 100.0;
-    assertEquals(ticketOut.getPrice(), expectedPrice);
-    dataBasePrepareService.clearDataBaseEntries();
-
-
-
-
-
-
-
-
-
-
-
-
-    // long outTimeCar = finalTicket.getOutTime().getTime();
-    //  long inTimeCar = finalTicket.getInTime().getTime();
-    //float duration =  ((outTimeCar - inTimeCar) / (float)(60*60*1000));
-    //double testPrice = Fare.CAR_RATE_PER_HOUR * 0.95 * duration;
-
-    //ASSERT
-    //assertEquals(objet, finalTicket.getPrice(), 0.5);
-
-
-
-
-
+        //THEN
+        assertEquals(Math.round(Fare.CAR_RATE_PER_HOUR * 0.95), Math.round(ticketDAO.getTicket("ABCDEF").getPrice()));
+        dataBasePrepareService.clearDataBaseEntries();
     }
 
 
