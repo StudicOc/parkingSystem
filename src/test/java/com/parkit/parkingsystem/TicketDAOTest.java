@@ -1,6 +1,5 @@
 package com.parkit.parkingsystem;
 
-
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
@@ -75,5 +74,19 @@ public class TicketDAOTest {
         assertNotNull(ticket.getParkingSpot());
         assertEquals(resultTicketEntries + 1, resultTicketsExiting, 1);
     }
+
+    @Test
+    public void GetTicketDAOTest (){
+        //WHEN
+        Mockito.when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
+        //THEN
+        ticketDAO.getTicket("ABCDEF");
+        ticketDAO.saveTicket(ticket);
+        //ASSERT
+        assertNotEquals(false,ticketDAO.getTicket("ABCDEF"));
+
+
+    }
+
 
 }
