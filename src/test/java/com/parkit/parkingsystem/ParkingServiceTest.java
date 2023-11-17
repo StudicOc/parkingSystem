@@ -32,7 +32,7 @@ public class ParkingServiceTest {
     @Mock
     private static ParkingSpotDAO parkingSpotDAO;
     @Mock
-    private static TicketDAO ticketDAO;
+    public static TicketDAO ticketDAO;
 
     @BeforeEach
     private void setUpPerTest () {
@@ -81,6 +81,7 @@ public class ParkingServiceTest {
 
         parkingService.processIncomingVehicle();
             //VERIFY
+        verify(inputReaderUtil, Mockito.times(1)).readSelection();
         verify(ticketDAO,Mockito.times(1)).saveTicket(any(Ticket.class));
     }
 
