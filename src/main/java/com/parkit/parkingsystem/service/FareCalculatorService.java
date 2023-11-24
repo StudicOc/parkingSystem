@@ -17,7 +17,6 @@ public class FareCalculatorService {
             throw new IllegalArgumentException("Out time provided is incorrect:" + ticket.getOutTime().toString());
         }
 
-
         //TODO: Some tests are failing here. Need to check if this logic is correct
         long outTime = ticket.getOutTime().getTime();
         long inTime = ticket.getInTime().getTime();
@@ -25,8 +24,9 @@ public class FareCalculatorService {
 
         double timeSpent= (double) Math.round(duration * 1000)/1000;
 
+
         // Parking is free for parking times less than 30 minutes ;
-        // A free parking feature for the first 30 minutes;
+
         if(timeSpent <= 0.5){
             ticket.setPrice(0);
             return;
@@ -44,8 +44,6 @@ public class FareCalculatorService {
             default: throw new IllegalArgumentException("Unkown Parking Type");
         }
 
-
-        //
         if(discount) {
             ticket.setPrice( ticket.getPrice() * (1 - (discountPercentage/100)));
         }

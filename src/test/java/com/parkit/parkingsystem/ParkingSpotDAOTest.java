@@ -47,18 +47,6 @@ public class ParkingSpotDAOTest {
 
 
     @Test
-    public void getTestNextAvailableSlot() {
-
-
-
-
-
-
-    }
-
-
-
-    @Test
     public void updateParking(){
         Mockito.when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
@@ -78,8 +66,4 @@ public class ParkingSpotDAOTest {
         assertEquals(0,parkingSpot.getId());
         assertEquals(false,parkingSpot.isAvailable());
     }
-
-
-
-
 }

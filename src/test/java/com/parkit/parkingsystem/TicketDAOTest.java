@@ -24,10 +24,9 @@ import static org.mockito.ArgumentMatchers.anyString;
 @ExtendWith(MockitoExtension.class)
 public class TicketDAOTest {
 
-    // CONNECTION WITH DATABASE //
+
     @Mock
     private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
-    // CREATE NEW TICKET //
     @Mock
     private static TicketDAO ticketDAO;
     @Mock
@@ -59,6 +58,8 @@ public class TicketDAOTest {
         ticket.setInTime(new Date());
         ticket.setOutTime(null);
     }
+
+
     @Test
     public void SaveTicketDAOTest ()  {
         //WHEN
@@ -67,8 +68,6 @@ public class TicketDAOTest {
         //THEN
         int resultTicketEntries = ticketDAO.getNbTicket("ABCDEF");
         ticketDAO.saveTicket(ticket);
-        //int resultTicketsExiting = ticketDAO.getNbTicket("ABCDEF");
-        //ticketDAO.saveTicket(ticket);
 
         //ASSERT
         Assertions.assertNotNull(ticket.getParkingSpot());
@@ -80,7 +79,7 @@ public class TicketDAOTest {
         Mockito.when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
 
         //THEN
-       Ticket ticket =  ticketDAO.getTicket("ABCDEF");
+        Ticket ticket =  ticketDAO.getTicket("ABCDEF");
         //ASSERT
         assertNotNull(ticket);
     }
