@@ -57,7 +57,7 @@ public class ParkingSpotDAOTest {
         assertEquals(true,parkingSpot.isAvailable());
     }
     @Test
-    public void NotUpdateParking(){
+    public void notUpdateParking(){
         Mockito.when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(false);
 
         ParkingSpot parkingSpot = new ParkingSpot(0, ParkingType.CAR, false);

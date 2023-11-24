@@ -7,6 +7,7 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,8 +17,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Date;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.*;
 
 
@@ -83,7 +82,7 @@ public class ParkingServiceTest {
         parkingService.processIncomingVehicle();
         ticketDAO.saveTicket(Ticket);
         //ASSERT
-        assertEquals(1,inputReaderUtil.readSelection());
+        Assertions.assertEquals(1, inputReaderUtil.readSelection());
 
     }
 
@@ -98,7 +97,7 @@ public class ParkingServiceTest {
         //WHEN
         parkingService.processExitingVehicle();
         //THEN
-        assertFalse(ticketDAO.updateTicket(any(Ticket.class)));
+        Assertions.assertFalse(ticketDAO.updateTicket(any(Ticket.class)));
 
     }
 
@@ -114,8 +113,8 @@ public class ParkingServiceTest {
         //THEN
         ParkingSpot parkingSpot = parkingService.getNextParkingNumberIfAvailable();
         //ASSERT
-        assertEquals(1,parkingSpot.getId());
-        assertEquals(true,parkingSpot.isAvailable());
+        Assertions.assertEquals(1, parkingSpot.getId());
+        Assertions.assertTrue(parkingSpot.isAvailable());
     }
 
     @Test
@@ -127,7 +126,7 @@ public class ParkingServiceTest {
         //THEN
         parkingService.getNextParkingNumberIfAvailable();
         //ASSERT
-        assertEquals(0, parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class)));
+        Assertions.assertEquals(0, parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class)));
     }
 
     @Test
@@ -137,7 +136,7 @@ public class ParkingServiceTest {
         //THEN
         parkingService.getNextParkingNumberIfAvailable();
         //ASSERT
-        assertEquals(3, inputReaderUtil.readSelection());
+        Assertions.assertEquals(3, inputReaderUtil.readSelection());
     }
 
 }
