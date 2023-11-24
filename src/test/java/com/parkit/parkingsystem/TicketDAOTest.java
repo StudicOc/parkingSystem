@@ -61,6 +61,21 @@ public class TicketDAOTest {
 
 
     @Test
+    public void saveTicketDAOTest ()  {
+        //WHEN
+        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+
+        //THEN
+        int resultTicketEntries = ticketDAO.getNbTicket("ABCDEF");
+        ticketDAO.saveTicket(ticket);
+
+        //ASSERT
+        Assertions.assertNotNull(ticket.getParkingSpot());
+        Assertions.assertEquals(resultTicketEntries, 1);
+    }
+
+
+    @Test
     public void saveFailTicketDAOTest ()  {
         //WHEN
         Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(0);
@@ -74,19 +89,6 @@ public class TicketDAOTest {
         Assertions.assertEquals(resultTicketEntries, 0);
     }
 
-    @Test
-    public void failSaveTicketDAOTest ()  {
-        //WHEN
-        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
-
-        //THEN
-        int resultTicketEntries = ticketDAO.getNbTicket("ABCDEF");
-        ticketDAO.saveTicket(ticket);
-
-        //ASSERT
-        Assertions.assertNotNull(ticket.getParkingSpot());
-        Assertions.assertEquals(resultTicketEntries, 1);
-    }
     @Test
     public void getTicketDAOTest (){
         //WHEN
@@ -104,6 +106,8 @@ public class TicketDAOTest {
 
         assertEquals(false,ticket.getParkingSpot().isAvailable());
     }
+
+
 
 
 }
