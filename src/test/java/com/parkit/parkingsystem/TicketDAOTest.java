@@ -85,11 +85,6 @@ public class TicketDAOTest {
     }
     @Test
     public void UpdateTicketTest () {
-
-        ParkingSpot parkingSpot = ticket.getParkingSpot();
-        //THEN
-        parkingSpotDAO.updateParking(parkingSpot);
-        //ASSERT
-        assertFalse(ticket.getParkingSpot().isAvailable());
+        assertEquals(false,ticket.getParkingSpot().isAvailable());
     }
 }

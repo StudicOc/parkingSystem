@@ -119,8 +119,8 @@ public class ParkingService {
             // Declaration of a variable that will call our method getNbTicket that return INT
 <span class="fc" id="L120">            int ticketsOccurrence = ticketDAO.getNbTicket(vehicleRegNumber);</span>
             // Condition to return discount (multiple tickets)
-<span class="pc bpc" id="L122" title="1 of 2 branches missed.">            if (ticketsOccurrence &gt; 1){</span>
-<span class="nc" id="L123">                fareCalculatorService.calculateFare(ticket, true);</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">            if (ticketsOccurrence &gt; 1){</span>
+<span class="fc" id="L123">                fareCalculatorService.calculateFare(ticket, true);</span>
             }
             // No reduction for client
             else {
