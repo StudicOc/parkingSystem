@@ -101,6 +101,7 @@ public class TicketDAOTest {
 
     @Test
     public void UpdateTicketTest () {
+
         assertEquals(false,ticket.getParkingSpot().isAvailable());
     }
 
