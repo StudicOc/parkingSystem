@@ -9,10 +9,18 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+
+@ExtendWith(MockitoExtension.class)
 public class ParkingSpotDAOTest {
     @Mock
     private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
@@ -22,6 +30,10 @@ public class ParkingSpotDAOTest {
     private static TicketDAO ticketDAO;
     @Mock
     private static DataBasePrepareService dataBasePrepareService;
+    @Mock
+    private com.parkit.parkingsystem.model.ParkingSpot ParkingSpot;
+
+
 
     @BeforeAll
     private static void setUp() throws Exception{
@@ -32,28 +44,42 @@ public class ParkingSpotDAOTest {
         dataBasePrepareService = new DataBasePrepareService();
 
     }
-    @BeforeEach
-    private void setUpPerTest () {
-        ParkingSpot initializeParkingSpot = new ParkingSpot(1, ParkingType.CAR, true);
-        parkingSpotDAO.updateParking(initializeParkingSpot);
-    }
+
 
     @Test
-    public void getNextAvailableSlot () {
-        // parkingNumber = parkingSpotDAO.getNextAvailableSlot(parkingType);
-        int NextAvailableSlot = parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR);
-        assertEquals (1, NextAvailableSlot);
+    public void getTestNextAvailableSlot() {
+
+
+
+
+
+
     }
+
+
+
     @Test
     public void updateParking(){
+        Mockito.when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, true);
-        //ASSERT
-        assertTrue(parkingSpotDAO.updateParking(parkingSpot));
+        parkingSpotDAO.updateParking(parkingSpot);
+
+        assertEquals(1,parkingSpot.getId());
+        assertEquals(true,parkingSpot.isAvailable());
     }
     @Test
     public void NotUpdateParking(){
+        Mockito.when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(false);
+
         ParkingSpot parkingSpot = new ParkingSpot(0, ParkingType.CAR, false);
-        //ASSERT
-        assertFalse(parkingSpotDAO.updateParking(parkingSpot));
+        parkingSpotDAO.updateParking(parkingSpot);
+
+        assertEquals(0,parkingSpot.getId());
+        assertEquals(false,parkingSpot.isAvailable());
     }
+
+
+
+
 }

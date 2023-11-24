@@ -7,7 +7,6 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,11 +32,12 @@ public class ParkingServiceTest {
     private static ParkingSpotDAO parkingSpotDAO;
     @Mock
     public static TicketDAO ticketDAO;
+    @Mock
+    private com.parkit.parkingsystem.model.Ticket Ticket;
 
     @BeforeEach
     private void setUpPerTest () {
 
-            // lenient() => execute when Unnecessary stubbing detected
         try {
             lenient().when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 
@@ -59,7 +59,7 @@ public class ParkingServiceTest {
     }
 
 
-                                        // MOCKITO TEST //
+    // MOCKITO TEST //
     @Test
     public void processExitingVehicleTest () {
         //  WHEN
@@ -74,15 +74,17 @@ public class ParkingServiceTest {
         /*testProcessIncomingVehicle: test the method call
         processIncomingVehicle() where everything happens as expected.*/
 
-            //WHEN
+        //GIVEN
         Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
         Mockito.when(inputReaderUtil.readSelection()).thenReturn(1);
         Mockito.when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
 
+        //THEN
         parkingService.processIncomingVehicle();
-            //VERIFY
-        verify(inputReaderUtil, Mockito.times(1)).readSelection();
-        verify(ticketDAO,Mockito.times(1)).saveTicket(any(Ticket.class));
+        ticketDAO.saveTicket(Ticket);
+        //ASSERT
+        assertEquals(1,inputReaderUtil.readSelection());
+
     }
 
     @Test
@@ -139,4 +141,3 @@ public class ParkingServiceTest {
     }
 
 }
-

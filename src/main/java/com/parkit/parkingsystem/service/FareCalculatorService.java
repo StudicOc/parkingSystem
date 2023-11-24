@@ -9,7 +9,7 @@ import com.parkit.parkingsystem.model.Ticket;
 
 public class FareCalculatorService {
 
-    // declaration variable for 5% discount //
+    // Declaration variable for 5% discount //
     double discountPercentage = 5;
 
     public void calculateFare(Ticket ticket, boolean discount){
@@ -45,10 +45,13 @@ public class FareCalculatorService {
         }
 
 
+        //
         if(discount) {
             ticket.setPrice( ticket.getPrice() * (1 - (discountPercentage/100)));
         }
     }
+
+                            // NO DISCOUNT FOR CLIENT //
     public void calculateFare(Ticket ticket) {
      calculateFare(ticket, false);
     }

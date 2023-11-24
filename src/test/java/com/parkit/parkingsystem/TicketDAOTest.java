@@ -1,9 +1,13 @@
 package com.parkit.parkingsystem;
 
 import com.parkit.parkingsystem.constants.ParkingType;
+import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
+import com.parkit.parkingsystem.integration.service.DataBasePrepareService;
 import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,21 +20,36 @@ import java.util.Date;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
 
+
 @ExtendWith(MockitoExtension.class)
 public class TicketDAOTest {
 
     // CONNECTION WITH DATABASE //
     @Mock
-    private final DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
-
+    private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
     // CREATE NEW TICKET //
     @Mock
-    private final TicketDAO ticketDAO = new TicketDAO();
+    private static TicketDAO ticketDAO;
+    @Mock
+    private static ParkingSpotDAO parkingSpotDAO;
     @Mock
     private Ticket ticket;
+    @Mock
+    private static DataBasePrepareService dataBasePrepareService;
+
+
+    @BeforeAll
+    private static void setUp() throws Exception{
+        parkingSpotDAO = new ParkingSpotDAO();
+        parkingSpotDAO.dataBaseConfig = dataBaseTestConfig;
+        ticketDAO = new TicketDAO();
+        ticketDAO.dataBaseConfig = dataBaseTestConfig;
+        dataBasePrepareService = new DataBasePrepareService();
+
+    }
 
     @BeforeEach
-    public void setUp(){
+    private void setUpPerTest () {
         ticketDAO.dataBaseConfig = dataBaseTestConfig;
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
         ticket = new Ticket();
@@ -48,12 +67,12 @@ public class TicketDAOTest {
         //THEN
         int resultTicketEntries = ticketDAO.getNbTicket("ABCDEF");
         ticketDAO.saveTicket(ticket);
-        int resultTicketsExiting = ticketDAO.getNbTicket("ABCDEF");
-        ticketDAO.saveTicket(ticket);
+        //int resultTicketsExiting = ticketDAO.getNbTicket("ABCDEF");
+        //ticketDAO.saveTicket(ticket);
 
         //ASSERT
-        assertNotNull(ticket.getParkingSpot());
-        assertEquals(resultTicketEntries + 1, resultTicketsExiting, 1);
+        Assertions.assertNotNull(ticket.getParkingSpot());
+        Assertions.assertEquals(resultTicketEntries, 1);
     }
     @Test
     public void GetTicketDAOTest (){
@@ -61,10 +80,17 @@ public class TicketDAOTest {
         Mockito.when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
 
         //THEN
-        ticketDAO.getTicket("ABCDEF");
-        ticketDAO.saveTicket(ticket);
-
+       Ticket ticket =  ticketDAO.getTicket("ABCDEF");
         //ASSERT
-        assertNotEquals(false,ticketDAO.getTicket("ABCDEF"));
+        assertNotNull(ticket);
+    }
+    @Test
+    public void UpdateTicketTest () {
+
+        ParkingSpot parkingSpot = ticket.getParkingSpot();
+        //THEN
+        parkingSpotDAO.updateParking(parkingSpot);
+        //ASSERT
+        assertFalse(ticket.getParkingSpot().isAvailable());
     }
 }

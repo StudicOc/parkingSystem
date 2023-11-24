@@ -9,7 +9,7 @@ import com.parkit.parkingsystem.model.Ticket;
 
 <span class="fc" id="L10">public class FareCalculatorService {</span>
 
-    // declaration variable for 5% discount //
+    // Declaration variable for 5% discount //
 <span class="fc" id="L13">    double discountPercentage = 5;</span>
 
     public void calculateFare(Ticket ticket, boolean discount){
@@ -45,12 +45,15 @@ import com.parkit.parkingsystem.model.Ticket;
         }
 
 
-<span class="fc bfc" id="L48" title="All 2 branches covered.">        if(discount) {</span>
-<span class="fc" id="L49">            ticket.setPrice( ticket.getPrice() * (1 - (discountPercentage/100)));</span>
+        //
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if(discount) {</span>
+<span class="fc" id="L50">            ticket.setPrice( ticket.getPrice() * (1 - (discountPercentage/100)));</span>
         }
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L52">    }</span>
+
+                            // NO DISCOUNT FOR CLIENT //
     public void calculateFare(Ticket ticket) {
-<span class="fc" id="L53">     calculateFare(ticket, false);</span>
-<span class="fc" id="L54">    }</span>
+<span class="fc" id="L56">     calculateFare(ticket, false);</span>
+<span class="fc" id="L57">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
