@@ -1,0 +1,212 @@
+# Created on 2023-11-25T21:57:20.094
+Unexpected IOException: I,1,java.specification.version,17
+
+
+# Created on 2023-11-25T21:57:20.097
+Unexpected IOException: I,1,sun.cpu.isalist,amd64
+
+
+# Created on 2023-11-25T21:57:20.101
+Unexpected IOException: I,1,sun.jnu.encoding,Cp1252
+
+
+# Created on 2023-11-25T21:57:20.104
+Unexpected IOException: I,1,java.class.path,C:\005CUsers\005Csabri\005CparkingSystem\005Ctarget\005Ctest-classes;C:\005CUsers\005Csabri\005CparkingSystem\005Ctarget\005Cclasses;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Clogging\005Clog4j\005Clog4j-api\005C2.20.0\005Clog4j-api-2.20.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Clogging\005Clog4j\005Clog4j-core\005C2.20.0\005Clog4j-core-2.20.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccom\005Cmysql\005Cmysql-connector-j\005C8.0.33\005Cmysql-connector-j-8.0.33.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccom\005Cgoogle\005Cprotobuf\005Cprotobuf-java\005C3.21.9\005Cprotobuf-java-3.21.9.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cjupiter\005Cjunit-jupiter-api\005C5.8.1\005Cjunit-jupiter-api-5.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Copentest4j\005Copentest4j\005C1.2.0\005Copentest4j-1.2.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cplatform\005Cjunit-platform-commons\005C1.8.1\005Cjunit-platform-commons-1.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capiguardian\005Capiguardian-api\005C1.1.2\005Capiguardian-api-1.1.2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cjupiter\005Cjunit-jupiter-engine\005C5.8.1\005Cjunit-jupiter-engine-5.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cplatform\005Cjunit-platform-engine\005C1.8.1\005Cjunit-platform-engine-1.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cmockito\005Cmockito-junit-jupiter\005C5.5.0\005Cmockito-junit-jupiter-5.5.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Cjacoco-maven-plugin\005C0.8.11\005Cjacoco-maven-plugin-0.8.11.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-utils\005C3.0.24\005Cplexus-utils-3.0.24.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cshared\005Cfile-management\005C3.1.0\005Cfile-management-3.1.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cslf4j\005Cslf4j-api\005C1.7.36\005Cslf4j-api-1.7.36.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Creporting\005Cmaven-reporting-api\005C3.0\005Cmaven-reporting-api-3.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cdoxia\005Cdoxia-sink-api\005C1.0\005Cdoxia-sink-api-1.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Corg.jacoco.agent\005C0.8.11\005Corg.jacoco.agent-0.8.11-runtime.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Corg.jacoco.core\005C0.8.11\005Corg.jacoco.core-0.8.11.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cow2\005Casm\005Casm\005C9.6\005Casm-9.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cow2\005Casm\005Casm-commons\005C9.6\005Casm-commons-9.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cow2\005Casm\005Casm-tree\005C9.6\005Casm-tree-9.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Corg.jacoco.report\005C0.8.11\005Corg.jacoco.report-0.8.11.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cplugins\005Cmaven-assembly-plugin\005C3.6.0\005Cmaven-assembly-plugin-3.6.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cshared\005Cmaven-common-artifact-filters\005C3.3.2\005Cmaven-common-artifact-filters-3.3.2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-interpolation\005C1.26\005Cplexus-interpolation-1.26.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccommons-io\005Ccommons-io\005C2.11.0\005Ccommons-io-2.11.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cshared\005Cmaven-filtering\005C3.3.1\005Cmaven-filtering-3.3.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cjavax\005Cinject\005Cjavax.inject\005C1\005Cjavax.inject-1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Csonatype\005Cplexus\005Cplexus-build-api\005C0.0.7\005Cplexus-build-api-0.0.7.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-io\005C3.4.1\005Cplexus-io-3.4.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-archiver\005C4.7.1\005Cplexus-archiver-4.7.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Ccommons\005Ccommons-compress\005C1.23.0\005Ccommons-compress-1.23.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ciq80\005Csnappy\005Csnappy\005C0.4\005Csnappy-0.4.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ctukaani\005Cxz\005C1.9\005Cxz-1.9.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccom\005Cgithub\005Cluben\005Czstd-jni\005C1.5.5-2\005Czstd-jni-1.5.5-2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cmaven-archiver\005C3.6.0\005Cmaven-archiver-3.6.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cjunit\005Cjunit\005C4.13.2\005Cjunit-4.13.2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Chamcrest\005Chamcrest-core\005C1.3\005Chamcrest-core-1.3.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cmockito\005Cmockito-core\005C5.5.0\005Cmockito-core-5.5.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cnet\005Cbytebuddy\005Cbyte-buddy\005C1.14.6\005Cbyte-buddy-1.14.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cnet\005Cbytebuddy\005Cbyte-buddy-agent\005C1.14.6\005Cbyte-buddy-agent-1.14.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cobjenesis\005Cobjenesis\005C3.3\005Cobjenesis-3.3.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Clog4j\005Clog4j\005C1.2.17\005Clog4j-1.2.17.jar;
+
+
+# Created on 2023-11-25T21:57:20.107
+Unexpected IOException: I,1,java.vm.vendor,Oracle Corporation
+
+
+# Created on 2023-11-25T21:57:20.108
+Unexpected IOException: I,1,sun.arch.data.model,64
+
+
+# Created on 2023-11-25T21:57:20.109
+Unexpected IOException: I,1,user.variant,
+
+
+# Created on 2023-11-25T21:57:20.112
+Unexpected IOException: I,1,java.vendor.url,https://java.oracle.com/
+
+
+# Created on 2023-11-25T21:57:20.114
+Unexpected IOException: I,1,java.vm.specification.version,17
+
+
+# Created on 2023-11-25T21:57:20.116
+Unexpected IOException: I,1,os.name,Windows 11
+
+
+# Created on 2023-11-25T21:57:20.117
+Unexpected IOException: I,1,sun.java.launcher,SUN_STANDARD
+
+
+# Created on 2023-11-25T21:57:20.121
+Unexpected IOException: I,1,user.country,FR
+
+
+# Created on 2023-11-25T21:57:20.124
+Unexpected IOException: I,1,sun.boot.library.path,C:\005CProgram Files\005CJava\005Cjdk-17\005Cbin
+
+
+# Created on 2023-11-25T21:57:20.127
+Unexpected IOException: I,1,sun.java.command,C:\005CUsers\005Csabri\005CAppData\005CLocal\005CTemp\005Csurefire8638799865480612972\005Csurefirebooter17413179825470918492.jar C:\005CUsers\005Csabri\005CAppData\005CLocal\005CTemp\005Csurefire8638799865480612972 2023-11-25T21-57-06_820-jvmRun1 surefire8690447965714627605tmp surefire_14511564410695106623tmp
+
+
+# Created on 2023-11-25T21:57:20.165
+Unexpected IOException: I,1,jdk.debug,release
+
+
+# Created on 2023-11-25T21:57:20.174
+Unexpected IOException: I,1,surefire.test.class.path,C:\005CUsers\005Csabri\005CparkingSystem\005Ctarget\005Ctest-classes;C:\005CUsers\005Csabri\005CparkingSystem\005Ctarget\005Cclasses;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Clogging\005Clog4j\005Clog4j-api\005C2.20.0\005Clog4j-api-2.20.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Clogging\005Clog4j\005Clog4j-core\005C2.20.0\005Clog4j-core-2.20.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccom\005Cmysql\005Cmysql-connector-j\005C8.0.33\005Cmysql-connector-j-8.0.33.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccom\005Cgoogle\005Cprotobuf\005Cprotobuf-java\005C3.21.9\005Cprotobuf-java-3.21.9.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cjupiter\005Cjunit-jupiter-api\005C5.8.1\005Cjunit-jupiter-api-5.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Copentest4j\005Copentest4j\005C1.2.0\005Copentest4j-1.2.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cplatform\005Cjunit-platform-commons\005C1.8.1\005Cjunit-platform-commons-1.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capiguardian\005Capiguardian-api\005C1.1.2\005Capiguardian-api-1.1.2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cjupiter\005Cjunit-jupiter-engine\005C5.8.1\005Cjunit-jupiter-engine-5.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjunit\005Cplatform\005Cjunit-platform-engine\005C1.8.1\005Cjunit-platform-engine-1.8.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cmockito\005Cmockito-junit-jupiter\005C5.5.0\005Cmockito-junit-jupiter-5.5.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Cjacoco-maven-plugin\005C0.8.11\005Cjacoco-maven-plugin-0.8.11.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-utils\005C3.0.24\005Cplexus-utils-3.0.24.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cshared\005Cfile-management\005C3.1.0\005Cfile-management-3.1.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cslf4j\005Cslf4j-api\005C1.7.36\005Cslf4j-api-1.7.36.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Creporting\005Cmaven-reporting-api\005C3.0\005Cmaven-reporting-api-3.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cdoxia\005Cdoxia-sink-api\005C1.0\005Cdoxia-sink-api-1.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Corg.jacoco.agent\005C0.8.11\005Corg.jacoco.agent-0.8.11-runtime.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Corg.jacoco.core\005C0.8.11\005Corg.jacoco.core-0.8.11.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cow2\005Casm\005Casm\005C9.6\005Casm-9.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cow2\005Casm\005Casm-commons\005C9.6\005Casm-commons-9.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cow2\005Casm\005Casm-tree\005C9.6\005Casm-tree-9.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cjacoco\005Corg.jacoco.report\005C0.8.11\005Corg.jacoco.report-0.8.11.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cplugins\005Cmaven-assembly-plugin\005C3.6.0\005Cmaven-assembly-plugin-3.6.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cshared\005Cmaven-common-artifact-filters\005C3.3.2\005Cmaven-common-artifact-filters-3.3.2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-interpolation\005C1.26\005Cplexus-interpolation-1.26.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccommons-io\005Ccommons-io\005C2.11.0\005Ccommons-io-2.11.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cshared\005Cmaven-filtering\005C3.3.1\005Cmaven-filtering-3.3.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cjavax\005Cinject\005Cjavax.inject\005C1\005Cjavax.inject-1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Csonatype\005Cplexus\005Cplexus-build-api\005C0.0.7\005Cplexus-build-api-0.0.7.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-io\005C3.4.1\005Cplexus-io-3.4.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ccodehaus\005Cplexus\005Cplexus-archiver\005C4.7.1\005Cplexus-archiver-4.7.1.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Ccommons\005Ccommons-compress\005C1.23.0\005Ccommons-compress-1.23.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ciq80\005Csnappy\005Csnappy\005C0.4\005Csnappy-0.4.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Ctukaani\005Cxz\005C1.9\005Cxz-1.9.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Ccom\005Cgithub\005Cluben\005Czstd-jni\005C1.5.5-2\005Czstd-jni-1.5.5-2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Capache\005Cmaven\005Cmaven-archiver\005C3.6.0\005Cmaven-archiver-3.6.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cjunit\005Cjunit\005C4.13.2\005Cjunit-4.13.2.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Chamcrest\005Chamcrest-core\005C1.3\005Chamcrest-core-1.3.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cmockito\005Cmockito-core\005C5.5.0\005Cmockito-core-5.5.0.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cnet\005Cbytebuddy\005Cbyte-buddy\005C1.14.6\005Cbyte-buddy-1.14.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Cnet\005Cbytebuddy\005Cbyte-buddy-agent\005C1.14.6\005Cbyte-buddy-agent-1.14.6.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Corg\005Cobjenesis\005Cobjenesis\005C3.3\005Cobjenesis-3.3.jar;C:\005CUsers\005Csabri\005C.m2\005Crepository\005Clog4j\005Clog4j\005C1.2.17\005Clog4j-1.2.17.jar;
+
+
+# Created on 2023-11-25T21:57:20.183
+Unexpected IOException: I,1,sun.cpu.endian,little
+
+
+# Created on 2023-11-25T21:57:20.186
+Unexpected IOException: I,1,user.home,C:\005CUsers\005Csabri
+
+
+# Created on 2023-11-25T21:57:20.189
+Unexpected IOException: I,1,user.language,fr
+
+
+# Created on 2023-11-25T21:57:20.191
+Unexpected IOException: I,1,java.specification.vendor,Oracle Corporation
+
+
+# Created on 2023-11-25T21:57:20.203
+Unexpected IOException: I,1,java.version.date,2023-04-18
+
+
+# Created on 2023-11-25T21:57:20.209
+Unexpected IOException: I,1,java.home,C:\005CProgram Files\005CJava\005Cjdk-17
+
+
+# Created on 2023-11-25T21:57:20.213
+Unexpected IOException: I,1,file.separator,\005C
+
+
+# Created on 2023-11-25T21:57:20.219
+Unexpected IOException: I,1,basedir,C:\005CUsers\005Csabri\005CparkingSystem
+
+
+# Created on 2023-11-25T21:57:20.221
+Unexpected IOException: I,1,java.vm.compressedOopsMode,32-bit
+
+
+# Created on 2023-11-25T21:57:20.223
+Unexpected IOException: I,1,line.separator,\000D\000A
+
+
+# Created on 2023-11-25T21:57:20.225
+Unexpected IOException: I,1,java.vm.specification.vendor,Oracle Corporation
+
+
+# Created on 2023-11-25T21:57:20.226
+Unexpected IOException: I,1,java.specification.name,Java Platform API Specification
+
+
+# Created on 2023-11-25T21:57:20.228
+Unexpected IOException: I,1,surefire.real.class.path,C:\005CUsers\005Csabri\005CAppData\005CLocal\005CTemp\005Csurefire8638799865480612972\005Csurefirebooter17413179825470918492.jar
+
+
+# Created on 2023-11-25T21:57:20.230
+Unexpected IOException: I,1,user.script,
+
+
+# Created on 2023-11-25T21:57:20.232
+Unexpected IOException: I,1,sun.management.compiler,HotSpot 64-Bit Tiered Compilers
+
+
+# Created on 2023-11-25T21:57:20.235
+Unexpected IOException: I,1,java.runtime.version,17.0.7+8-LTS-224
+
+
+# Created on 2023-11-25T21:57:20.237
+Unexpected IOException: I,1,user.name,sabri
+
+
+# Created on 2023-11-25T21:57:20.238
+Unexpected IOException: I,1,path.separator,;
+
+
+# Created on 2023-11-25T21:57:20.240
+Unexpected IOException: I,1,os.version,10.0
+
+
+# Created on 2023-11-25T21:57:20.241
+Unexpected IOException: I,1,java.runtime.name,Java(TM) SE Runtime Environment
+
+
+# Created on 2023-11-25T21:57:20.242
+Unexpected IOException: I,1,file.encoding,Cp1252
+
+
+# Created on 2023-11-25T21:57:20.243
+Unexpected IOException: I,1,java.vm.name,Java HotSpot(TM) 64-Bit Server VM
+
+
+# Created on 2023-11-25T21:57:20.244
+Unexpected IOException: I,1,localRepository,C:\005CUsers\005Csabri\005C.m2\005Crepository
+
+
+# Created on 2023-11-25T21:57:20.246
+Unexpected IOException: I,1,java.vendor.url.bug,https://bugreport.java.com/bugreport/
+
+
+# Created on 2023-11-25T21:57:20.248
+Unexpected IOException: I,1,java.io.tmpdir,C:\005CUsers\005Csabri\005CAppData\005CLocal\005CTemp\005C
+
+
+# Created on 2023-11-25T21:57:20.251
+Unexpected IOException: I,1,java.version,17.0.7
+
+
+# Created on 2023-11-25T21:57:20.252
+Unexpected IOException: I,1,user.dir,C:\005CUsers\005Csabri\005CparkingSystem
+
+
+# Created on 2023-11-25T21:57:20.256
+Unexpected IOException: I,1,os.arch,amd64
+
+
+# Created on 2023-11-25T21:57:20.257
+Unexpected IOException: I,1,java.vm.specification.name,Java Virtual Machine Specification
+
+
+# Created on 2023-11-25T21:57:20.258
+Unexpected IOException: I,1,sun.os.patch.level,
+
+
+# Created on 2023-11-25T21:57:20.260
+Unexpected IOException: I,1,native.encoding,Cp1252
+
+
+# Created on 2023-11-25T21:57:20.263
+Unexpected IOException: I,1,java.library.path,C:\005CProgram Files\005CJava\005Cjdk-17\005Cbin;C:\005CWINDOWS\005CSun\005CJava\005Cbin;C:\005CWINDOWS\005Csystem32;C:\005CWINDOWS;C:\005CProgram Files\005CCommon Files\005COracle\005CJava\005Cjavapath;C:\005CProgram Files\005CEclipse Adoptium\005Cjdk-11.0.17.8-hotspot\005Cbin;C:\005CWINDOWS\005Csystem32;C:\005CWINDOWS;C:\005CWINDOWS\005CSystem32\005CWbem;C:\005CWINDOWS\005CSystem32\005CWindowsPowerShell\005Cv1.0\005C;C:\005CWINDOWS\005CSystem32\005COpenSSH\005C;C:\005CProgram Files\005CGit\005Ccmd;C:\005CProgram Files\005Cnodejs\005C;C:\005CProgram Files\005CJava\005Cjdk-20;C:\005CProgram Files\005CJava\005Cjdk-20\005Cbin;C:\005CProgram Files\005CMaven\005Capache-maven-3.9.4\005Cbin;C:\005CUsers\005Csabri\005CAppData\005CLocal\005CMicrosoft\005CWindowsApps;C:\005CUsers\005Csabri\005CAppData\005CLocal\005CPrograms\005CMicrosoft VS Code\005Cbin;C:\005CUsers\005Csabri\005CAppData\005CRoaming\005Cnpm;C:\005CUsers\005Csabri\005Cnode_modules\005Cpath;C:\005CProgram Files\005CMySQL\005CMySQL Server 8.0\005Cbin;C:\005CProgram Files (x86)\005Csfdx\005Cbin;C:\005CProgram Files\005CJava\005Cjdk-20;";C:\005CProgram Files\005CJava\005Cjdk-20\005Cbin;C:\005CProgram Files\005CMaven\005Capache-maven-3.9.4\005Cbin";C:\005CProgram Files\005CMySQL\005CMySQL Server 8.1;;.
+
+
+# Created on 2023-11-25T21:57:20.264
+Unexpected IOException: I,1,java.vm.info,mixed mode\002C sharing
+
+
+# Created on 2023-11-25T21:57:20.266
+Unexpected IOException: I,1,java.vendor,Oracle Corporation
+
+
+# Created on 2023-11-25T21:57:20.269
+Unexpected IOException: I,1,java.vm.version,17.0.7+8-LTS-224
+
+
+# Created on 2023-11-25T21:57:20.270
+Unexpected IOException: I,1,sun.io.unicode.encoding,UnicodeLittle
+
+
+# Created on 2023-11-25T21:57:20.272
+Unexpected IOException: I,1,java.class.version,61.0
+
+

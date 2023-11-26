@@ -32,7 +32,7 @@ public class ParkingServiceTest {
     @Mock
     public static TicketDAO ticketDAO;
     @Mock
-    private com.parkit.parkingsystem.model.Ticket Ticket;
+    private Ticket ticket;
 
     @BeforeEach
     private void setUpPerTest () {
@@ -62,10 +62,13 @@ public class ParkingServiceTest {
     @Test
     public void processExitingVehicleTest () {
         //  WHEN
-        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
+        when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+
         //  VERIFY
         parkingService.processExitingVehicle();
-        verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
+        verify(parkingSpotDAO, times(1)).updateParking(any(ParkingSpot.class));
     }
 
     @Test
@@ -80,7 +83,7 @@ public class ParkingServiceTest {
 
         //THEN
         parkingService.processIncomingVehicle();
-        ticketDAO.saveTicket(Ticket);
+        ticketDAO.saveTicket(ticket);
         //ASSERT
         Assertions.assertEquals(1, inputReaderUtil.readSelection());
 
@@ -138,5 +141,8 @@ public class ParkingServiceTest {
         //ASSERT
         Assertions.assertEquals(3, inputReaderUtil.readSelection());
     }
+
+
+            //MORE TEST//
 
 }

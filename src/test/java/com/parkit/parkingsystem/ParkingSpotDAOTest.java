@@ -6,8 +6,8 @@ import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.integration.config.DataBaseTestConfig;
 import com.parkit.parkingsystem.integration.service.DataBasePrepareService;
 import com.parkit.parkingsystem.model.ParkingSpot;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -16,8 +16,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,8 +28,7 @@ public class ParkingSpotDAOTest {
     private static TicketDAO ticketDAO;
     @Mock
     private static DataBasePrepareService dataBasePrepareService;
-    @Mock
-    private com.parkit.parkingsystem.model.ParkingSpot ParkingSpot;
+
 
 
 
@@ -53,8 +50,8 @@ public class ParkingSpotDAOTest {
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, true);
         parkingSpotDAO.updateParking(parkingSpot);
 
-        assertEquals(1,parkingSpot.getId());
-        assertEquals(true,parkingSpot.isAvailable());
+        Assertions.assertEquals(1, parkingSpot.getId());
+        Assertions.assertTrue(parkingSpot.isAvailable());
     }
     @Test
     public void notUpdateParking(){
@@ -63,7 +60,7 @@ public class ParkingSpotDAOTest {
         ParkingSpot parkingSpot = new ParkingSpot(0, ParkingType.CAR, false);
         parkingSpotDAO.updateParking(parkingSpot);
 
-        assertEquals(0,parkingSpot.getId());
-        assertEquals(false,parkingSpot.isAvailable());
+        Assertions.assertEquals(0, parkingSpot.getId());
+        Assertions.assertFalse(parkingSpot.isAvailable());
     }
 }
