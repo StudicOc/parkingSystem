@@ -24,7 +24,6 @@ import static org.mockito.ArgumentMatchers.anyString;
 @ExtendWith(MockitoExtension.class)
 public class TicketDAOTest {
 
-
     @Mock
     private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
     @Mock
@@ -48,7 +47,8 @@ public class TicketDAOTest {
     }
 
     @BeforeEach
-    private void setUpPerTest () {
+    private
+    void setUpPerTest () {
         ticketDAO.dataBaseConfig = dataBaseTestConfig;
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
         ticket = new Ticket();
@@ -106,8 +106,6 @@ public class TicketDAOTest {
 
         assertEquals(false,ticket.getParkingSpot().isAvailable());
     }
-
-
 
 
 }
