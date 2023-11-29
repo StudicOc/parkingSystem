@@ -73,8 +73,7 @@ public class ParkingServiceTest {
 
     @Test
     public void testProcessIncomingVehicle () {
-        /*testProcessIncomingVehicle: test the method call
-        processIncomingVehicle() where everything happens as expected.*/
+        /*testProcessIncomingVehicle: test the method call processIncomingVehicle() where everything happens as expected.*/
 
         //GIVEN
         Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
