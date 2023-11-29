@@ -143,7 +143,7 @@ public class ParkingServiceTest {
     }
 
 
-    //MORE TEST//
+    //TEST UNITAIRE //
     @Test
     public void testProcessIncomingVehicleRecurrentClient () {
     /*testProcessIncomingVehicle: test the method call
