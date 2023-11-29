@@ -134,6 +134,7 @@ public class ParkingServiceTest {
 
     @Test
     public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(){
+
         //GIVEN
         Mockito.when(inputReaderUtil.readSelection()).thenReturn(3);
         //THEN
