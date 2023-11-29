@@ -143,8 +143,7 @@ public class ParkingServiceTest {
     }
 
 
-            //MORE TEST//
-
+    //MORE TEST//
     @Test
     public void testProcessIncomingVehicleRecurrentClient () {
     /*testProcessIncomingVehicle: test the method call
@@ -164,5 +163,6 @@ public class ParkingServiceTest {
         Assertions.assertEquals(1, inputReaderUtil.readSelection());
 
     }
+
 
 }

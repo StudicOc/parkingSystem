@@ -17,8 +17,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.parkit.parkingsystem.integration.config.DataBaseTestConfig;
 
 import java.util.Date;
-import static org.junit.Assert.*;
+
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -33,11 +35,11 @@ public class TicketDAOTest {
     @Mock
     private Ticket ticket;
     @Mock
-    private static DataBasePrepareService dataBasePrepareService;
+    public static DataBasePrepareService dataBasePrepareService;
 
 
     @BeforeAll
-    private static void setUp() throws Exception{
+    public static void setUp(){
         parkingSpotDAO = new ParkingSpotDAO();
         parkingSpotDAO.dataBaseConfig = dataBaseTestConfig;
         ticketDAO = new TicketDAO();
@@ -47,8 +49,7 @@ public class TicketDAOTest {
     }
 
     @BeforeEach
-    private
-    void setUpPerTest () {
+    public void setUpPerTest () {
         ticketDAO.dataBaseConfig = dataBaseTestConfig;
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
         ticket = new Ticket();
