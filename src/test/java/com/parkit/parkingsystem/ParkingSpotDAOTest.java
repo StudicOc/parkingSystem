@@ -27,13 +27,13 @@ public class ParkingSpotDAOTest {
     @Mock
     private static TicketDAO ticketDAO;
     @Mock
-    private static DataBasePrepareService dataBasePrepareService;
+    public static DataBasePrepareService dataBasePrepareService;
 
 
 
 
     @BeforeAll
-    private static void setUp() throws Exception{
+    public static void setUp(){
         parkingSpotDAO = new ParkingSpotDAO();
         parkingSpotDAO.dataBaseConfig = dataBaseTestConfig;
         ticketDAO = new TicketDAO();
