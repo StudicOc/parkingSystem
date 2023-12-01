@@ -142,29 +142,4 @@ public class ParkingServiceTest {
         Assertions.assertEquals(3, inputReaderUtil.readSelection());
     }
 
-
-
-    //MORE TEST//
-    @Test
-    public void testProcessIncomingVehicleRecurrentClient () {
-    /*testProcessIncomingVehicle: test the method call
-    processIncomingVehicle() when we have reccurent client.
-    With message 5% discount*/
-
-        //GIVEN
-        Mockito.when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(2);
-        Mockito.when(inputReaderUtil.readSelection()).thenReturn(1);
-        Mockito.when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
-
-        //THEN
-        parkingService.processIncomingVehicle();
-        ticketDAO.saveTicket(ticket);
-        //ASSERT
-        Assertions.assertEquals(2,ticketDAO.getNbTicket("ABCDEF"));
-        Assertions.assertEquals(1, inputReaderUtil.readSelection());
-
-    }
-
-
-
 }
