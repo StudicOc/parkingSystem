@@ -37,6 +37,7 @@ public class ParkingService {
 
                 Date inTime = new Date();
                 Ticket ticket = new Ticket();
+
                 //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
                 //ticket.setId(ticketID);
                 ticket.setParkingSpot(parkingSpot);
@@ -46,7 +47,7 @@ public class ParkingService {
                 ticket.setOutTime(null);
 
                 // GIVE MESSAGE FOR CLIENT DISCOUNT
-                if (ticketDAO.getNbTicket(vehicleRegNumber) > 1) {
+                if (ticketDAO.getNbTicket(vehicleRegNumber) >= 1) {
 
                     System.out.println("Heureux de vous revoir ! En tant qu’utilisateur régulier de\n" +
                             "notre parking, vous allez obtenir une remise de 5%");

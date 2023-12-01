@@ -94,7 +94,6 @@ public class TicketDAOTest {
     public void getTicketDAOTest (){
         //WHEN
         Mockito.when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
-
         //THEN
         Ticket ticket =  ticketDAO.getTicket("ABCDEF");
         //ASSERT

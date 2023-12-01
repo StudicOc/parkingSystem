@@ -45,13 +45,13 @@ public class ParkingSpotDAOTest {
 
     @Test
     public void updateParking(){
-        Mockito.when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+        Mockito.when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(false);
 
-        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, true);
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
         parkingSpotDAO.updateParking(parkingSpot);
 
         Assertions.assertEquals(1, parkingSpot.getId());
-        Assertions.assertTrue(parkingSpot.isAvailable());
+        Assertions.assertFalse(parkingSpot.isAvailable());
     }
     @Test
     public void notUpdateParking(){
@@ -63,4 +63,5 @@ public class ParkingSpotDAOTest {
         Assertions.assertEquals(0, parkingSpot.getId());
         Assertions.assertFalse(parkingSpot.isAvailable());
     }
+
 }
